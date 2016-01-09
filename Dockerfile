@@ -1,7 +1,7 @@
 ###### QNIBng image
 FROM qnib/terminal:cos7
 
-RUN yum install -y openssh-server && \
+RUN yum install -y openssh-server openssh-clients && \
     mkdir -p /var/run/sshd && \
     sed -i -e 's/#UseDNS yes/UseDNS no/' /etc/ssh/sshd_config && \
     getent passwd sshd || useradd -g sshd sshd

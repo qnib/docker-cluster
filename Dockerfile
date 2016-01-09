@@ -25,3 +25,8 @@ RUN groupadd -g 3000 clusers && \
     useradd -u 4002 -G guests -d /home/jane -m jane
 ADD home/ /tmp/home/
 RUN /tmp/home/usersetup.sh alice bob carol dave eve john jane && rm -rf /tmp/home
+
+# Install dependencies
+RUN yum install -y openmpi-devel libmlx4 qperf infiniband-diags gsl libgomp bc
+RUN echo "source /etc/profile" >> /etc/bashrc
+RUN echo "module load mpi" >> /etc/bashrc

@@ -1,5 +1,5 @@
 ###### QNIBng image
-FROM qnib/terminal:sensu
+FROM qnib/terminal
 
 RUN yum install -y openssh-server openssh-clients && \
     mkdir -p /var/run/sshd && \
